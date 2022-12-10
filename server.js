@@ -22,7 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
-// GET Route for homepage (index.html)
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/Develop/public/index.html")));
+// GET Route for the notes page
+app.get("/notes", (req, res) => res.sendFile(path.join(__dirname, "/Develop/public/notes.html")));
+
+// Wildcard GET route to direct users to the homepage (index.html)
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, "/Develop/public/index.html")));
 
 app.listen(PORT, () => console.log(`Your app is listening at http://localhost:${PORT}`));
