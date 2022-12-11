@@ -33,4 +33,19 @@ notes.post("/", (req, res) => {
   }
 });
 
+// TODO: find out if the db can be the test entry in the db can be removed without breaking the page
+// Delete Route to remove the note from the db
+notes.delete("/:id", (req, res) => {
+  const noteId = req.params.id;
+  readFromFile("./db/db.json")
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      const result = json.filter((note) => note.id !== noteId);
+
+      writeToFile("./db/db.json", result);
+
+      res.json(`Note ${noteId} has been deleted`);
+    });
+});
+
 module.exports = notes;
