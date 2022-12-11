@@ -1,19 +1,7 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
-        "title": "Parker",
-        "text": "this is the text"
-    },
-    {
-        "title": "Parker2",
-        "text": "notes"
-    },
-    {
-        "title": "Parkerrrrr",
-        "text": "444444",
-        "note_id": "dac9c96f-a071-4b31-aabd-649ceb91cfae"
+        "title": "Complete Homework",
+        "text": "Need to add the delete function",
+        "id": "066db380-fa85-4bc1-abc4-9b02897859e1"
     }
 ]
