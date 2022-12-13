@@ -1,16 +1,15 @@
 const notes = require("express").Router();
 const { readFromFile, readAndAppend, writeToFile } = require("../helpers/fsUtils");
 const { v4: uuidv4 } = require("uuid");
+const dbPath = "./db/db.json";
 
 // GET Route for retrieving all the saved notes in the db
 notes.get("/", (req, res) => {
-  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
+  readFromFile(`${dbPath}`).then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for submitting a new note to the db
 notes.post("/", (req, res) => {
-  console.log(req.body);
-
   const { title, text } = req.body;
 
   if (title && text) {
@@ -20,7 +19,7 @@ notes.post("/", (req, res) => {
       id: uuidv4(),
     };
 
-    readAndAppend(newNote, "./db/db.json");
+    readAndAppend(newNote, `${dbPath}`);
 
     const response = {
       status: "success",
@@ -29,22 +28,21 @@ notes.post("/", (req, res) => {
 
     res.json(response);
   } else {
-    res.error("Error in adding note");
+    res.error("Error in posting note");
   }
 });
 
-// TODO: find out if the db can be the test entry in the db can be removed without breaking the page
 // Delete Route to remove the note from the db
 notes.delete("/:id", (req, res) => {
   const noteId = req.params.id;
-  readFromFile("./db/db.json")
+  readFromFile(`${dbPath}`)
     .then((data) => JSON.parse(data))
     .then((json) => {
       const result = json.filter((note) => note.id !== noteId);
 
-      writeToFile("./db/db.json", result);
+      writeToFile(`${dbPath}`, result);
 
-      res.json(`Note ${noteId} has been deleted`);
+      res.json(`Note has been deleted`);
     });
 });
 

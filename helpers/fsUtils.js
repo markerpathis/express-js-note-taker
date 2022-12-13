@@ -1,5 +1,5 @@
-const fs = require('fs');
-const util = require('util');
+const fs = require("fs");
+const util = require("util");
 
 // Promise version of fs.readFile
 const readFromFile = util.promisify(fs.readFile);
@@ -11,7 +11,7 @@ const readFromFile = util.promisify(fs.readFile);
  */
 const writeToFile = (destination, content) =>
   fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
-    err ? console.error(err) : console.info(`\nData written to ${destination}`)
+    err ? console.error(err) : console.info(`\nSuccess! Update has been written to ${destination}`)
   );
 /**
  *  Function to read data from a given a file and append some content
@@ -20,7 +20,7 @@ const writeToFile = (destination, content) =>
  *  @returns {void} Nothing
  */
 const readAndAppend = (content, file) => {
-  fs.readFile(file, 'utf8', (err, data) => {
+  fs.readFile(file, "utf8", (err, data) => {
     if (err) {
       console.error(err);
     } else {

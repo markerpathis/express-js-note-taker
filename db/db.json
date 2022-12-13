@@ -1,6 +1,17 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "Grocery Shopping",
+        "text": "Shopping List: coffee, cream, eggs, bread, peanut butter, bell peppers, avocado, cabbage, onion, cilantro, ginger beer,",
+        "id": "7181bff4-9014-4772-b7ba-abfb4f7af6a4"
+    },
+    {
+        "title": "Finish Coding Challenge 11",
+        "text": "Finished and deploy coding challenge 11 for class. The application needs to be deployed on Heroku.",
+        "id": "8835d081-0d7a-4e36-a925-5e66e01f3c5f"
+    },
+    {
+        "title": "Christmas Shopping",
+        "text": "Finish Christmas shopping for family. Don't wait too long!",
+        "id": "7fce8f2f-9927-4b1e-90be-7776e9d4de5f"
     }
 ]
